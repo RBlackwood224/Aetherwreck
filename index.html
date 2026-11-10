@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AETHERWRECK: The Drowned Sky</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0d0c0b; overflow: hidden; font-family: 'Courier New', Courier, monospace; color: #e8dcc0; user-select: none; }
+  #game { position: fixed; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
+  #ui { position: fixed; inset: 0; pointer-events: none; }
+  .hidden { display: none !important; }
+  button { font-family: inherit; }
+  .err { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #f88; }
+  /* menus */
+  .menu { position: absolute; inset: 0; pointer-events: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+          background: radial-gradient(ellipse at center, rgba(20,16,12,0.15), rgba(10,8,6,0.75)); z-index: 30; }
+  .logo { text-align: center; text-shadow: 3px 3px 0 #000, 0 0 18px rgba(255,140,50,0.45); }
+  .logo .l1 { font-size: clamp(34px, 7vw, 84px); font-weight: bold; letter-spacing: 0.12em; color: #e2b25c; }
+  .logo .l2 { font-size: clamp(14px, 2.2vw, 26px); letter-spacing: 0.35em; color: #c7c0a8; margin-top: 4px; text-transform: uppercase; }
+  .logo.small .l1 { font-size: clamp(22px, 4vw, 44px); }
+  .btns { display: flex; flex-direction: column; gap: 8px; align-items: stretch; min-width: 320px; }
+  .btns > button, .langs button, .shop button, .choices button {
+    background: linear-gradient(#5a4128, #3a2a1a); color: #f0dfb8; border: 2px solid #c29a3c; box-shadow: 0 3px 0 #1a120a, inset 0 0 0 2px #2a1e12;
+    padding: 9px 16px; font-size: 17px; cursor: pointer; text-align: left; letter-spacing: 0.05em; }
+  .btns > button:hover, .langs button:hover, .shop button:hover, .choices button:hover { background: linear-gradient(#7a5734, #4c3720); color: #fff; }
+  .btns > button:disabled { opacity: 0.4; cursor: default; }
+  .langs { display: flex; gap: 6px; justify-content: center; margin-top: 6px; }
+  .langs button { font-size: 14px; padding: 5px 10px; text-align: center; }
+  .langs button.on { border-color: #ffdb7a; color: #ffdb7a; }
+  .foot { position: absolute; bottom: 10px; font-size: 12px; opacity: 0.6; }
+  .panel { background: rgba(20,15,10,0.85); border: 2px solid #8a6a32; padding: 14px 18px; max-width: 760px; font-size: 15px; display: flex; flex-direction: column; gap: 10px; }
+  .panel pre { white-space: pre-wrap; margin: 0; font-size: 14px; line-height: 1.6; }
+  .panel input { font-family: inherit; font-size: 16px; background: #1a140e; color: #f0dfb8; border: 1px solid #8a6a32; padding: 4px 8px; }
+  .panel input[type=range] { width: 220px; vertical-align: middle; }
+  .panel .code { font-size: 22px; color: #ffdb7a; letter-spacing: 0.1em; }
+  .chk { font-size: 13px; opacity: 0.8; }
+  .loading { position: absolute; inset: 0; background: #0d0c0b; z-index: 50; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; pointer-events: auto; }
+  .loading .l1 { font-size: 48px; color: #e2b25c; letter-spacing: 0.12em; font-weight: bold; }
+  .loading .bar { width: 360px; height: 14px; border: 2px solid #8a6a32; }
+  .loading .bar i { display: block; height: 100%; background: #c29a3c; }
+  /* hud */
+  .hud { position: absolute; overflow: hidden; text-shadow: 2px 2px 0 #000; }
+  .hud .cross { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: 22px; color: rgba(255,240,200,0.8); }
+  .hud .prompt { position: absolute; left: 50%; top: 58%; transform: translateX(-50%); font-size: 18px; color: #ffe7a8; white-space: nowrap; }
+  .hud .tl { position: absolute; left: 14px; top: 12px; max-width: 46%; }
+  .hud .chap { font-size: 13px; color: #c29a3c; letter-spacing: 0.1em; }
+  .hud .obj { font-size: 16px; color: #f4e6c4; margin-top: 3px; }
+  .hud .tr { position: absolute; right: 14px; top: 12px; display: flex; flex-direction: column; align-items: flex-end; font-size: 14px; gap: 2px; }
+  .hud .shipp { position: absolute; left: 14px; bottom: 16px; font-size: 14px; background: rgba(20,14,8,0.55); border: 1px solid #6a5028; padding: 8px 10px; display: flex; flex-direction: column; gap: 3px; }
+  .hud .mb { display: inline-block; width: 110px; height: 9px; border: 1px solid #8a6a32; vertical-align: middle; }
+  .hud .mb i { display: block; height: 100%; }
+  .hud .cells { display: inline-flex; gap: 2px; height: 14px; align-items: flex-end; vertical-align: middle; }
+  .hud .cells i { display: inline-block; width: 9px; background: #8fc070; }
+  .hud .tr .want { color: #ff6050; }
+  .quests .reps { font-size: 12px; margin-bottom: 10px; } .quests .rp { display: flex; gap: 8px; } .quests .rp span { flex: 1; } .quests .rp em { color: #ff5040; font-style: normal; }
+  .hud .gears b { display: inline-block; width: 18px; text-align: center; opacity: 0.45; }
+  .hud .gears b.on { opacity: 1; color: #ffdb7a; border: 1px solid #ffdb7a; }
+  .hud .bars { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: flex; flex-direction: column; gap: 5px; width: 260px; }
+  .hud .bar { position: relative; height: 13px; border: 2px solid #2a1e12; background: rgba(0,0,0,0.5); }
+  .hud .bar i { position: absolute; left: 0; top: 0; bottom: 0; }
+  .hud .bar.hp i { background: #a8322a; } .hud .bar.air i { background: #7fa65a; }
+  .hud .bar span { position: absolute; left: 6px; top: -2px; font-size: 12px; }
+  .hud .items { position: absolute; right: 14px; bottom: 16px; display: flex; gap: 4px; font-size: 12px; flex-wrap: wrap; justify-content: flex-end; max-width: 40%; }
+  .hud .items span { padding: 3px 7px; border: 1px solid #5a4428; background: rgba(0,0,0,0.4); opacity: 0.7; }
+  .hud .items span.on { border-color: #ffdb7a; color: #ffdb7a; opacity: 1; }
+  .hud .notes { position: absolute; right: 14px; top: 130px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 14px; }
+  .hud .notes .n { background: rgba(20,14,8,0.6); padding: 3px 8px; border-left: 3px solid #c29a3c; animation: fadeN 4s forwards; }
+  @keyframes fadeN { 0% { opacity: 0; transform: translateX(20px);} 8% { opacity: 1; transform: none;} 80% { opacity: 1;} 100% { opacity: 0; } }
+  .hud .compass { position: absolute; left: 50%; top: 10px; transform: translateX(-50%); width: 360px; height: 56px; overflow: hidden; }
+  .hud .compass .strip { position: absolute; left: 0; right: 0; top: 0; height: 20px; border-bottom: 2px solid rgba(194,154,60,0.6); }
+  .hud .compass .strip i { position: absolute; top: 2px; transform: translateX(-50%); font-style: normal; font-size: 13px; color: #d8c8a0; }
+  .hud .compass .mark { position: absolute; top: 21px; transform: translateX(-50%); color: #ffcc33; font-size: 13px; white-space: nowrap; }
+  .hud .compass .qmark { position: absolute; top: 37px; transform: translateX(-50%); color: #7fe0ff; font-size: 12px; white-space: nowrap; }
+  .qrow { font-size: 12px; margin: 2px 0; color: #e8dcc0; }
+  .qrow button.mini { padding: 1px 6px; margin-left: 4px; font-size: 11px; width: auto; display: inline-block; }
+  button.quest.chain { border-color: #e8c060; color: #ffe39a; }
+  .hud .hurt { position: absolute; inset: 0; box-shadow: inset 0 0 120px 40px rgba(170,0,0,0.9); opacity: 0; transition: opacity 0.2s; }
+  .hud .fogv { position: absolute; inset: 0; box-shadow: inset 0 0 160px 70px rgba(60,80,30,0.95); opacity: 0; transition: opacity 0.6s; }
+  .hud .dead { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; background: rgba(0,0,0,0.5); }
+  /* dialogue */
+  .dialog { position: absolute; left: 50%; bottom: 90px; transform: translateX(-50%); width: min(820px, 90vw); background: rgba(18,13,8,0.92); border: 2px solid #c29a3c;
+            box-shadow: 0 0 0 4px #1a120a; padding: 14px 18px; pointer-events: auto; z-index: 20; }
+  .dialog .who { color: #e2b25c; font-weight: bold; margin-bottom: 6px; letter-spacing: 0.06em; }
+  .dialog .txt { font-size: 18px; line-height: 1.45; }
+  .dialog .txt.narr { font-style: italic; color: #d8d0b8; }
+  .dialog .cont { text-align: right; font-size: 12px; opacity: 0.6; margin-top: 8px; }
+  .choices { display: flex; gap: 10px; margin-top: 12px; }
+  .card { position: absolute; left: 0; right: 0; top: 30%; text-align: center; text-shadow: 3px 3px 0 #000; animation: cardA 4.2s forwards; z-index: 15; }
+  .card .c1 { font-size: 16px; letter-spacing: 0.5em; color: #c29a3c; text-transform: uppercase; }
+  .card .c2 { font-size: clamp(26px, 5vw, 56px); color: #f4e6c4; margin-top: 8px; }
+  @keyframes cardA { 0% { opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+  .ending { position: absolute; inset: 0; background: rgba(0,0,0,0.88); display: flex; align-items: center; justify-content: center; z-index: 40; }
+  .ending .et { max-width: 780px; font-size: 24px; line-height: 1.6; text-align: center; animation: cardA 6.5s forwards; padding: 20px; }
+  .toast { position: absolute; left: 50%; top: 22%; transform: translateX(-50%); background: rgba(20,14,8,0.9); border: 1px solid #c29a3c; padding: 8px 16px; z-index: 60; animation: fadeN 2.6s forwards; }
+  /* map */
+  .map { position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 25; }
+  .mapwrap { display: flex; gap: 16px; background: #1c1610; border: 3px solid #8a6a32; padding: 14px; max-width: 96vw; }
+  .mapwrap canvas { width: min(560px, 60vh); height: min(560px, 60vh); image-rendering: pixelated; border: 2px solid #3a2a1a; }
+  .quests { width: 300px; font-size: 14px; }
+  .quests h3 { margin: 0 0 10px; color: #e2b25c; }
+  .quests .qc { color: #c29a3c; } .quests .qo { margin: 6px 0 14px; font-size: 16px; }
+  .quests .qk { white-space: pre-wrap; font-size: 12px; opacity: 0.75; }
+  /* shop */
+  .shop { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); pointer-events: auto; z-index: 26; }
+  .shop .sp { background: #1c1610; border: 3px solid #8a6a32; padding: 16px; display: flex; flex-direction: column; gap: 7px; min-width: 420px; }
+  .shop h3 { margin: 0; color: #e2b25c; } .shop .gold { color: #ffdb7a; margin-bottom: 6px; }
+  .shop button { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+  .shop button em { font-style: normal; color: #ffdb7a; } .shop button small { opacity: 0.7; }
+  .shop button.poor em { color: #a86; } .shop .close { justify-content: center; margin-top: 6px; }
+  .shop .sp { max-height: 88vh; overflow-y: auto; min-width: 460px; }
+  .shop table.goods { border-collapse: collapse; width: 100%; font-size: 14px; } .shop table.goods td, .shop table.goods th { padding: 2px 6px; text-align: left; }
+  .shop table.goods button { padding: 3px 10px; font-size: 13px; min-width: 56px; justify-content: center; }
+  .shop .hint { font-size: 13px; opacity: 0.85; } .shop h4 { margin: 8px 0 2px; color: #c29a3c; } .shop .quest { font-size: 14px; } .shop .quest.done { border-color: #8fc070; }
+  .shop .rumor { font-style: italic; padding: 8px; background: rgba(0,0,0,0.3); } .shop .want { color: #ff5040; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="ui"></div>
+<script src="game.js"></script>
+</body>
+</html>
