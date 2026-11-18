@@ -139,6 +139,14 @@ The game changes music with the situation and crossfades between tracks. All 10 
 
 ## Versions
 
+**2.4**
+- 10 original music tracks included.
+- New title-screen art.
+- A real ladder from the quarters doorway up through the roof hatch into the envelope; the rungs hold you while you climb.
+- **Go ashore:** on a moored or anchored ship, press E on the rear balcony to step onto the mast platform or the anchor rock. You can board the anchored wreck again from the rock.
+- Stoking: the shovel stays in your hand. E at the coal bin loads it, E at the firebox throws the coal in. A number key puts the shovel down. New scrape and fire sounds.
+- Fix: coal, the firebox glow, leather gloves, white gauge faces and several cloth and skin colours were invisible because they were missing from the palette.
+
 **2.3**
 - Panoramic cockpit: glass nose, skylight and a glass floor in front of the helm.
 - Fine furniture instead of coarse blocks: console, chart table, bunks, water tank, boiler, coal bin. Also wall ribs, panelling, and window and door frames.
