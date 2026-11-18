@@ -139,6 +139,14 @@ The game changes music with the situation and crossfades between tracks. All 10 
 
 ## Versions
 
+**2.5**
+- The ladder now stands beside the quarters doorway (it used to block the way to the engine room). Walk into the hatch from the keel walkway to climb down; looking down while pressing W also goes down.
+- Drop anchor anywhere: at the helm, set the telegraph to 0 and press E once the ship has slowed. If there is rock below, you can go ashore from the balcony.
+- Smooth steering: the rudder follows your input gradually and the new eight-spoke wheel turns up to one and a half turns.
+- The coal bin can be reached from the aisle left of the boiler. Any item key, the mouse wheel, Q or a click puts the shovel down.
+- Longer hammer reach (10 m on the envelope), and a hint when no hole is in front of you.
+- New sounds: layered gunshots, cannon and explosions with a reverb tail, sabre whoosh, metal clanks.
+
 **2.4**
 - 10 original music tracks included.
 - New title-screen art.
