@@ -139,6 +139,19 @@ The game changes music with the situation and crossfades between tracks. All 10 
 
 ## Versions
 
+**2.7**
+- Ladders work with a key: stand at the foot and press E to climb up, at the top press E to climb down. The hatches are closed, so you cannot fall through.
+- The quarters ladder stands at the back wall, right of the doorway (not on the water tank). Its top on the keel walkway is marked with two red lamps.
+- The lookout ladder runs inside an iron shaft through the envelope, starting above head height, so the walkway stays clear.
+- The rear balcony has a real door into the engine room (boarding used to leave you outside a closed wall).
+- Ceiling beams no longer cut through the boiler; the boiler is shaded as a drum.
+- Checked: every station (helm, chart table, coal, firebox, valve, water tank, guns, ball turret, ladders) is reachable on foot from the balcony.
+
+**2.6**
+- Repairs made easy: with the hammer in hand every hole on your ship glows through the hull with its distance (orange = gondola, planks; pale = envelope, canvas).
+- The hammer patches the nearest hole within reach even if you are not aiming exactly at it, including the one you stand in.
+- The starting wreck's holes are now where you can reach them: the envelope's underside beside the keel walkway and the quarters walls.
+
 **2.5**
 - The ladder now stands beside the quarters doorway (it used to block the way to the engine room). Walk into the hatch from the keel walkway to climb down; looking down while pressing W also goes down.
 - Drop anchor anywhere: at the helm, set the telegraph to 0 and press E once the ship has slowed. If there is rock below, you can go ashore from the balcony.
