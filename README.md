@@ -139,6 +139,14 @@ The game changes music with the situation and crossfades between tracks. All 10 
 
 ## Versions
 
+**3.4 – fixes (tested by playing with keyboard and mouse only)**
+- The ship would not move: with a half-empty balloon it sank onto the rock and every frame's collision also cancelled its forward motion. It now slides along and lifts clear. Sealed gas cells now refill in about a minute (they used to take many minutes).
+- Taking the wheel with E also cast off at once, so the next E (meant to raise the anchor) dropped it again and the ship stayed put. The key that takes a station no longer works it.
+- Shovelling a full firebox no longer pushes the boiler into the red (it used to blow up a few seconds after three shovels). One shovel lasts about half a minute at full ahead.
+- The big pale and brown slabs and "random cubes" inside the ship: escaping gas was drawn as large growing cubes that drifted down into the gondola; it is now a faint shimmer of small specks blown outwards. The gondola's outer skin no longer folds into the cabin at the gun ports and windows. Cloud puffs are never drawn inside the ship you are on.
+- Inside the envelope: the keel walkway's railing (half-metre blocks at eye level that hid the holes) is now a slim brass rail with a rope, the lamps are small lanterns, the lookout shaft is a smooth iron tube, and the canvas no longer pokes up through the walkway. The holes in the envelope show as openings beside the walkway.
+- The helm can be taken from a little further away.
+
 **3.3**
 - A real steampunk cockpit: the flat painted dashboard is replaced by brass instruments under glass. Altitude, airspeed, boiler-pressure and firebox gauges with sprung needles; an inclinometer whose ball rolls with the ship; six glass gas-cell tubes whose liquid falls and changes colour as the cells leak; an engraved brass plate with altitude, speed, heading, sky layer, wind and position; green-shaded console lamps that light the cockpit at night.
 - Beside the wheel: a binnacle compass with a gimballed card under a glass dome (it stays level in a storm), Kelvin's iron balls and a little lamp; and a Chadburn engine-order telegraph whose handle and pointer swing to the order and ring its bell. The elevator lever moves on a toothed brass quadrant.
