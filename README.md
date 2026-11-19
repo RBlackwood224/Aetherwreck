@@ -139,6 +139,44 @@ The game changes music with the situation and crossfades between tracks. All 10 
 
 ## Versions
 
+**3.3**
+- A real steampunk cockpit: the flat painted dashboard is replaced by brass instruments under glass. Altitude, airspeed, boiler-pressure and firebox gauges with sprung needles; an inclinometer whose ball rolls with the ship; six glass gas-cell tubes whose liquid falls and changes colour as the cells leak; an engraved brass plate with altitude, speed, heading, sky layer, wind and position; green-shaded console lamps that light the cockpit at night.
+- Beside the wheel: a binnacle compass with a gimballed card under a glass dome (it stays level in a storm), Kelvin's iron balls and a little lamp; and a Chadburn engine-order telegraph whose handle and pointer swing to the order and ring its bell. The elevator lever moves on a toothed brass quadrant.
+- On the cockpit walls: an aneroid barometer that falls before storms and fog, a clock running on the world's time, a gauge board, the speaking tube with its flared mouth and lid, and the ship's bell, which sways in rough weather. In the engine room: a boiler pressure gauge and water sight-glass on a stand, and the firebox now throws a flickering orange glow.
+- New guns on every ship: cannons are cast-iron barrels with brass bands, a cascabel knob, trunnions in an iron yoke on a turntable and an elevation handwheel – and they recoil when they fire. Machine guns are six-barrel gatlings with an ammunition drum and spade grips, and the barrels spin up as they fire.
+
+**3.2**
+- Weather: the sky now changes on its own – clear, overcast, rain, fog banks and storms. Rain greys the sky, drums on the hull and helps put out fires aboard. In a fog bank you see only a few dozen metres – but enemies (and the spotter kites) see you much later too. Storms bring heavy rain, lightning, gusts that push the ship sideways and rock it. The barometer warns you before a storm or fog arrives (shown on the HUD with the current weather). Online, everyone shares the same weather.
+- The enemy craft are now finely built instead of coarse blocks: smooth planked hulls with deck rails, moving cloth balloons with brass rings (shot holes show in them), real propellers with pitched blades. The glider has a proper tapered wing with an airfoil, ribs, struts, a canopy and a pilot; the kite is a billowing checkered sail on spars with a ribbon tail and a wicker basket with a lookout; the gunboat flies on two big wooden lift rotors; the harpoon tug carries a winch drum and a barbed harpoon gun; the fireship's deck is stacked with powder barrels under a black flag; the minelayer has a flat balloon, a crane and spiked mines on rails; the Crown cruiser has a bridge tower, twin funnels, a pennant mast and an iron ram. Wings and sails tear where they are hit.
+
+**3.1**
+- Seven new enemy craft, each with its own silhouette and tactics (they start showing up after chapter 7, depending on altitude, story progress and how wanted you are):
+  - **Glider swarm** – canvas-winged one-man gliders in packs of 3–4; they circle, then dive and drop bombs on your deck.
+  - **Spotter kite** – a big checkered kite with a basket lookout. If it watches you for a few seconds it fires a flare and calls in another ship. Shoot it down fast.
+  - **Gunboat** – no balloon: two huge lift rotors on outriggers, a smokestack and two machine guns.
+  - **Harpoon tug** – twin striped balloons and a bow harpoon. It hooks your ship and drags it; cut the line with the sabre or the hammer.
+  - **Fireship** – a rusty, burning wreck with a torn balloon, packed with powder kegs. It rams you and blows up – keep it at range.
+  - **Minelayer** – a wide double-hulled iron barge under a flat balloon; it leaves drifting aerial mines behind it.
+  - **Crown cruiser** – the largest: Crown colours, armoured bow (frontal shots barely scratch it), ram, tower, four incendiary cannons.
+- Online: the new craft, the harpoon line and the mines are synced to every player. Fixed a client-side explosion-sound error.
+
+**3.0**
+- Finer airships: the gondolas and pirate hulls wear a smooth, curved, planked skin instead of coarse blocks (windows, doors and every shot hole still show through it); engine nacelles are smooth riveted cylinders with brass bands; the tail fins are thin ribbed plates. Wood, iron, brass, cloth and stone surfaces are painted with planks, rivets and seams everywhere.
+- Ship livery at the shipyard: envelope paint (8 schemes), hull wood, trim metal, flag with 7 emblems and 7 colours on a pole at the stern, figurehead (brass eagle, gear, lantern) and the ship's name on boards along the gondola. Changes show live on your ship.
+- Captain's log [L]: written automatically – chapters, objectives, first visits, jobs, ships brought down, crew, paint jobs, rare catches – by day.
+- Photo mode [F]: free camera, zoom, six filters, click to save a picture. Solo play freezes the world.
+- Hire crew at the tavern: a stoker (shovels coal), a gunner (mans the cannons when attacked) and a mechanic (patches holes). They stand at their posts aboard.
+- Fog fishing: from the stern balcony, low over the fog (below 75 m) and nearly still, cast the net [E], wait for the tug and pull in time [E]. Fog jellies, wisp moths, aether eels, brass-shelled crabs and the rare fog pearl – the lower you fish, the better. Sell them with the cargo.
+- Online: the anchor state is shared, so going ashore and fishing work for every player.
+
+**2.9**
+- Character creator: name plus skin, eyes, hairstyle and colour, brows, beard, scar, headgear, outerwear, coat, shirt, waistcoat, trousers, boots, goggles / monocle / mechanical eye / eyepatch / gas mask, scarf, mechanical arm and gloves, with a live turning preview (double-click for a close-up). Online, other players see your look and your name over your head.
+- Much finer people: 2.5 cm voxels, faces with eyes, brows, nose and mouth, fingers, buttons, belts, lapels, long coat tails that swing as you walk.
+- Townsfolk dress for their trade (shipwrights in leather aprons and goggles, innkeepers in waistcoats, officials in long coats and top hats), stand around with crossed arms or hands behind their backs, and turn their heads to look at you.
+
+**2.8**
+- In-game guide for the first chapter: a panel shows the next thing to do with its keys (moving, hammer, patching, ladders, coal and firebox, helm, telegraph, globe, mooring) and moves on by itself when you have done it, in any order. Switch it off or on in Settings.
+
 **2.7**
 - Ladders work with a key: stand at the foot and press E to climb up, at the top press E to climb down. The hatches are closed, so you cannot fall through.
 - The quarters ladder stands at the back wall, right of the doorway (not on the water tank). Its top on the keel walkway is marked with two red lamps.
@@ -221,6 +259,8 @@ The game changes music with the situation and crossfades between tracks. All 10 
 - **Többjátékos:** osztott képernyő, illetve online co-op legfeljebb 4 főnek.
 - **Zene:** 10 saját zeneszám a `music` mappában, a helyzethez igazodva, áttűnéssel.
 
-**Irányítás:**
+**Irányítás:** (L – kapitányi napló, F – fotómód)
+
+**Irányítás részletesen:**
 - **Gyalog:** WASD, egér, E (használat), Q (állomás elhagyása), 1–6 (eszközök), Tab (glóbusz).
 - **Kormánynál:** W/S telegráf, A/D kormány, Space/C magasság, B ballaszt, H kürt, E kikötés.
