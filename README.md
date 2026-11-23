@@ -88,7 +88,9 @@ You can take up to 6 jobs at once. The tracked job shows as a ◇ marker on the 
 - Every town remembers you, and so does the whole world.
 - Help a town and you get better prices.
 - Commit crimes and you collect wanted stars: guards attack, guard ships chase you, at 3 stars the mast will not let you moor, and black bounty-hunter zeppelins come after you.
-- Pay your fine at the town hall, or wait for things to cool down.
+- Every crime adds heat to that town (up to 5 stars). 1 star: guards attack. 2 stars: shops refuse you and guard ships open fire. 3 stars: the mooring mast is closed to you.
+- Heat cools by about one star every 4 minutes while you stay more than 600 m away from the town.
+- Pay your fine at the harbour (250 gold per star + 50), or do jobs for the town to bring the heat down.
 
 ### Combat
 - **On foot:** sabre, pistol, hammer, grapple and a camera.
@@ -115,6 +117,14 @@ You can take up to 6 jobs at once. The tracked job shows as a ◇ marker on the 
 | Left click | use the item in your hand | – | fire |
 | 1–6 | sabre · pistol · hammer · extinguisher · grapple · spyglass/camera | | |
 | Tab / M | globe map, jobs and reputation (drag to rotate, wheel to zoom) | | |
+
+## What's new in v3.6
+- Faster: the ships' small fixed parts are merged, so there is about half as much to draw each frame.
+- No more camera jumps while steering.
+- The click that closes a dialog or accepts a job no longer fires the pistol.
+- The engine needs steam: with an empty firebox the pressure drops in seconds and the ship stops.
+- The coal in the bunker sinks as you use it.
+- Rebalanced: more money and coal at the start, cheaper coal and repair goods, better job rewards, fewer and smaller raids early on, and free charity coal at the harbour if you are broke with an empty bunker.
 
 ## Settings
 - Pixel size, mouse sensitivity, volume and name.
