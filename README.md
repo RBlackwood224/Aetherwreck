@@ -139,6 +139,22 @@ The game changes music with the situation and crossfades between tracks. All 10 
 
 ## Versions
 
+**3.5 – fixes and towns**
+- No more shudder while flying: grazing rock used to reverse the speed every frame; now the ship stops or slides.
+- A ship wedged against a mast or a building used to stay stuck for good; it now works itself free and can always climb out. Taking off from a town mast works.
+- Taking a station: the key that took it is ignored until you let go of it.
+- Anchoring anywhere over a town counts as being in port there (the story, trade and gas refills follow). The "back to the ship" prompt only shows right by the ship.
+- Left alone with no anchor down, the ship drops anchor by itself instead of drifting away.
+- Collisions damage the ship (bow, stern, or the bottom on a hard landing), scaled by the impact: parking bumps and slow scrapes do nothing. Lightning no longer strikes a ship in port, and only rarely in the open.
+- The ball turret is now a clear glass dome: you sit low in it, under the hull line, and the gun's own housing no longer fills the view.
+- A catwalk with rails along the top of the envelope, out of both ends of the lookout: every hole on the upper half can be reached, and you cannot slide off.
+- Envelope holes show from far away: a scorched, frayed ring around each one.
+- At the helm the keys are always on screen: W/S telegraph, A/D rudder, Space climb, C descend.
+- Townsfolk walk the streets on a path network instead of into walls; trading ships fly over the rooftops and get themselves free if they touch anything.
+- Everyone you can talk to in town has a sign over their head with their trade and name.
+- Houses, taverns, halls, markets and shipyards are furnished inside: tables and chairs, beds, shelves, stoves, rugs, bar counters, desks, workbenches and hanging lamps.
+- The map: "you are here" arrow with heading, the goal with a dashed line and its distance, town names with distances, a north arrow, a legend, and a box saying which sky layer you are in and which town is nearest, how far and which way. Opens zoomed in on you.
+
 **3.4 – fixes (tested by playing with keyboard and mouse only)**
 - The ship would not move: with a half-empty balloon it sank onto the rock and every frame's collision also cancelled its forward motion. It now slides along and lifts clear. Sealed gas cells now refill in about a minute (they used to take many minutes).
 - Taking the wheel with E also cast off at once, so the next E (meant to raise the anchor) dropped it again and the ship stayed put. The key that takes a station no longer works it.
