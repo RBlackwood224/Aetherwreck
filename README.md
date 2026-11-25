@@ -22,7 +22,7 @@ A first-person, post-apocalyptic steampunk zeppelin game in voxel pixel art. You
 
 ### A whole planet
 - The fog surface is a sphere with a radius of 5.2 km, about 32.7 km around. A full lap at full steam takes about 21 minutes.
-- 12 towns, 129 wild islands, about 170 ruins and 39 wrecks in the fog, and 7 aether storms.
+- 12 towns, 129 wild islands, 40 resource islands, 56 abandoned islets, about 40 mountains, about 170 ruins and 39 wrecks in the fog, and 7 aether storms.
 - **Four sky layers**, each with its own wind:
 
   | Layer | Height | What you find there |
@@ -118,14 +118,6 @@ You can take up to 6 jobs at once. The tracked job shows as a ◇ marker on the 
 | 1–6 | sabre · pistol · hammer · extinguisher · grapple · spyglass/camera | | |
 | Tab / M | globe map, jobs and reputation (drag to rotate, wheel to zoom) | | |
 
-## What's new in v3.6
-- Faster: the ships' small fixed parts are merged, so there is about half as much to draw each frame.
-- No more camera jumps while steering.
-- The click that closes a dialog or accepts a job no longer fires the pistol.
-- The engine needs steam: with an empty firebox the pressure drops in seconds and the ship stops.
-- The coal in the bunker sinks as you use it.
-- Rebalanced: more money and coal at the start, cheaper coal and repair goods, better job rewards, fewer and smaller raids early on, and free charity coal at the harbour if you are broke with an empty bunker.
-
 ## Settings
 - Pixel size, mouse sensitivity, volume and name.
 - **Shadows:** High, Low or Off. Use Low on slower computers.
@@ -148,6 +140,25 @@ The game changes music with the situation and crossfades between tracks. All 10 
 | `ending.mp3` | the ending | `menu` |
 
 ## Versions
+
+**3.7 – mountains, mining, busier skies and a new night sky**
+- **A new sky:** painted day skies with high cirrus, rose and copper dusks, and deep indigo nights with a galaxy band, purple and teal nebulae and twinkling stars.
+- **Constellations:** eight star pictures (the Boiler, the Anchor, the Airship, the Gear, the Raven, the Leviathan, the Crown and the Lantern), traced in faint brass lines like an astrolabe.
+- **Other worlds:** a ringed giant, a small blue planet, and the Broken Moon: a pale moon with a glowing torn side and a trail of shards. You can see them from anywhere on the planet, and they show faintly by day too.
+- **Mountains:** about 40 crags rise from the drowned floor up through the fog, with ash on the slopes and frost on the highest peaks.
+- **A livelier fog sea:** glowing toxic veins wind slowly through it.
+- **Resource islands:** strike coal, timber, copper ore or crystal with the hammer (3). Coal goes straight into the bunker, timber becomes planks, ore and crystal go into the hold to sell. What you take grows back after a few minutes. Two of these islands sit close to Rustbell.
+- **Black markets:** four hidden outposts on remote resource islands. The fence buys anything without questions (contraband pays best), sells coal, shells and filters, and offers forged papers that take one star off every wanted level.
+- **Abandoned islets:** small rocks with a broken hut, and a treasure chest is always waiting there.
+- **Busier skies:** more merchants and guards, two new ship types (tramp freighters and fast couriers), and passing ships always come and go near you.
+
+**3.6 – speed, balance and fixes**
+- Faster: the ships' small fixed parts are merged, so there is about half as much to draw each frame.
+- No more camera jumps while steering.
+- The click that closes a dialog or accepts a job no longer fires the pistol.
+- The engine needs steam: with an empty firebox the pressure drops in seconds and the ship stops.
+- The coal in the bunker sinks as you use it.
+- Rebalanced: more money and coal at the start, cheaper coal and repair goods, better job rewards, fewer and smaller raids early on, and free charity coal at the harbour if you are broke with an empty bunker.
 
 **3.5 – fixes and towns**
 - No more shudder while flying: grazing rock used to reverse the speed every frame; now the ship stops or slides.
@@ -280,7 +291,7 @@ The game changes music with the situation and crossfades between tracks. All 10 
 - követed a történetet az Elsüllyedt Koronáig.
 
 - **Indítás:** nyisd meg a fenti linket, vagy töltsd le a repót, és nyisd meg az `index.html`-t.
-- **Világ:** 5,2 km sugarú bolygó, 12 város, 129 vad sziget, 4 magassági réteg, viharok és köd a térképen.
+- **Világ:** 5,2 km sugarú bolygó, 12 város, 129 vad sziget, 40 kitermelhető sziget, 56 elhagyatott sziget, kb. 40 hegy, 4 magassági réteg, viharok és köd a térképen.
 - **Zeppelin:**
   - **Kormányállás:** műszerfal, valódi iránytű és telegráf.
   - **Térképszoba:** glóbusz és oldalágyúk.
@@ -289,7 +300,13 @@ The game changes music with the situation and crossfades between tracks. All 10 
   - **Burok:** hat gázcella, a lyukakon látszik a szivárgó gáz.
 - **Küldetések:** 11 típus a hirdetőtáblákon, egyszerre 6 vállalható, kincses térképek.
 - **Történet:** 5 fejezet két befejezéssel, és 11 városi mellékszál.
-- **Hírnév és körözés:** városonként és világszinten, csillagokkal, plakátokkal és fejvadászokkal.
+- **Hírnév és körözés:** városonként és világszinten, csillagokkal, plakátokkal és fejvadászokkal. Minden bűn „hőt” ad az adott városnál (legfeljebb 5 csillag). 1 csillagnál az őrök megtámadnak, 2-nél a boltok nem szolgálnak ki és az őrhajók lőnek, 3-nál a kikötő bezár. A hő lassan elmúlik, ha 600 méternél messzebb vagy (kb. 4 percenként egy csillag). Kifizetheted a bírságot (csillagonként 250 + 50 arany), segíthetsz a városnak, vagy vehetsz hamis papírokat a feketepiacon.
+- **Égbolt:** festői nappali ég fátyolfelhőkkel, rózsaszín és rézszínű alkonyat, mélykék éjszaka tejúttal, ködökkel és csillagképekkel. Csillagképek: Kazán, Horgony, Léghajó, Fogaskerék, Holló, Leviatán, Korona és Lámpás. Az égen van egy gyűrűs óriásbolygó, egy kis kék bolygó és a Törött Hold, izzó, letört oldallal és szilánkokkal.
+- **Hegyek:** kb. 40 sziklacsúcs nő ki a ködtengerből, a ködben izzó mérgező erek kanyarognak.
+- **Kitermelés:** a kitermelhető szigeteken kalapáccsal (3) szenet, fát, rézércet és kristályt lehet kitermelni. A szén a bunkerbe, a fa deszkának, az érc és a kristály a raktárba kerül. Pár perc múlva visszanő.
+- **Feketepiac:** négy rejtett állomás távoli szigeteken. Az orgazda mindent megvesz, és hamis papírokat is árul.
+- **Elhagyatott szigetek:** apró sziklák romos kunyhóval, mindig van rajtuk kincsesláda.
+- **Forgalom:** több kereskedő és őr, csavargó teherhajók és gyors futárhajók, és a közeledben mindig jár néhány hajó.
 - **Többjátékos:** osztott képernyő, illetve online co-op legfeljebb 4 főnek.
 - **Zene:** 10 saját zeneszám a `music` mappában, a helyzethez igazodva, áttűnéssel.
 
